@@ -69,6 +69,16 @@ public class DynamicArrayList {
 
 An array of Strings to be added. 
 All values from this array should be added to the list (nulls included). The method should return nothing. */
+    public void addAll(String[] values) {
+    if (values == null) {
+        throw new IllegalArgumentException("Input array cannot be null");
+    }
+    if (size + values.length > array.length) {
+        throw new IllegalArgumentException("Insufficient space in the list");
+    }
+    System.arraycopy(values, 0, array, size, values.length);
+    size += values.length;
+}
     
     /*Your list should contain a method called remove() that takes two parameters: 
 
@@ -94,11 +104,41 @@ and the method should return false.
 Explanation:
 No instances were removed. Even though "hi" is in the list, it doesn't appear anywhere AFTER the supplied position and therefore is not eligible to be removed.
  */
-    
+    public boolean remove(String str, int startPos) {
+    if (str == null) {
+        throw new IllegalArgumentException("String to be removed cannot be null");
+    }
+    if (startPos < 0 || startPos >= size) {
+        throw new IndexOutOfBoundsException("Invalid start position");
+    }
+
+    for (int i = startPos; i < size; i++) {
+        if (str.equals(array[i])) {
+            // Shift elements to the left to remove the found string
+            System.arraycopy(array, i + 1, array, i, size - i - 1);
+            array[--size] = null; // Clear the last element
+            return true;
+        }
+    }
+    return false; // String not found
+}
     /*Your list should contain a method called lastIndexOf() that takes one parameter:
 The String to be found in the list (This should not be null)
 The method should return an int indicating the last position at which the String could
 be found. If the String could not be found, an appropriate value should be returned
 to indicate this. Comparisons should be done in a case-sensitive manner, and null
 should not be acceptable as a parameter for this method. */
+    public int lastIndexOf(String str) {
+    if (str == null) {
+        throw new IllegalArgumentException("String to be found cannot be null");
+    }
+
+    for (int i = size - 1; i >= 0; i--) {
+        if (str.equals(array[i])) {
+            return i;
+        }
+    }
+    return -1; // String not found
+}
+    
 }
