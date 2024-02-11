@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class DynamicArrayList {
  private String[] array;
     private int size;
-    private  int capacity = 10;
+    private final int capacity = 10;
 
     public DynamicArrayList() {
         this.array = new String[capacity];
