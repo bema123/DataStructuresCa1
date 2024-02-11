@@ -14,10 +14,11 @@ import java.util.Arrays;
 public class DynamicArrayList {
  private String[] array;
     private int size;
-    private final int capacity = 10;
+    private final int DEFAULT_CAPACITY;
 
     public DynamicArrayList() {
-        this.array = new String[capacity];
+        this.DEFAULT_CAPACITY = 10;
+        this.array = new String[DEFAULT_CAPACITY];
         this.size = 0;
     }
  /** * Your dynamic array list should include a constructor that lets the user supply
@@ -27,6 +28,7 @@ public class DynamicArrayList {
     and invalid values handled accordingly.
      * @param size**/
     public DynamicArrayList(String[] size) {
+        this.DEFAULT_CAPACITY = 10;
         if (size == null || size.equals(0)) {
             throw new IllegalArgumentException("Initial array cannot be null");
         }
