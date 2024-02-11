@@ -14,10 +14,10 @@ import java.util.Arrays;
 public class DynamicArrayList {
  private String[] array;
     private int size;
-    private final int DEFAULT_CAPACITY;
+    private static final int DEFAULT_CAPACITY=10;
 
     public DynamicArrayList() {
-        this.DEFAULT_CAPACITY = 10;
+       
         this.array = new String[DEFAULT_CAPACITY];
         this.size = 0;
     }
