@@ -14,11 +14,11 @@ import java.util.Arrays;
 public class DynamicArrayList {
  private String[] array;
     private int size;
-    private static final int DEFAULT_CAPACITY=10;
+    private int capactiy=10;
 
     public DynamicArrayList() {
-       
-        this.array = new String[DEFAULT_CAPACITY];
+       this.capactiy=10;
+        this.array = new String[capacity];
         this.size = 0;
     }
  /** * Your dynamic array list should include a constructor that lets the user supply
