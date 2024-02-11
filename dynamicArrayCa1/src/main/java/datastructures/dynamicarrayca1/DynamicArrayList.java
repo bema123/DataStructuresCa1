@@ -28,11 +28,11 @@ public class DynamicArrayList {
     and invalid values handled accordingly.
      * @param size**/
     public DynamicArrayList(String[] size) {
-        this.DEFAULT_CAPACITY = 10;
+        //this.DEFAULT_CAPACITY = 10;
         if (size == null || size.equals(0)) {
             throw new IllegalArgumentException("Initial array cannot be null");
         }
-        this.array = Arrays.copyOf(size, Math.max(size.length, capacity));
+        this.array = Arrays.copyOf(size, Math.max(size.length, DEFAULT_CAPACITY));
         this.size = size.length;
     }
     public int size() {
